@@ -1,0 +1,251 @@
+$color-background: #F5F5F5;
+$color-border: #D5D4D4;
+$color-text: #535C6E;
+
+.app{
+    background: #EEEEEE;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $color-text;
+}
+
+.contact-book{
+    background: #FAFAFA;
+    height: 500px;
+    width: 700px;
+    border: .05rem solid $color-border;
+    // border-radius: .2rem;
+    display: flex;
+    // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.contact-list{
+    background: $color-background;
+    width: 200px;
+    overflow: scroll;
+}
+.search-bar{
+    input{
+        border-color: #FFFFFF;
+        border-radius: 0;
+        &:focus{
+            border-color: $color-text;
+            box-shadow: none;
+        }
+    }
+}
+.contacts{
+    display: flex;
+    flex-direction: column;
+    border-top: .05rem solid $color-border;
+}
+.contact{
+    padding: .2rem;
+    display: flex;
+    align-items: center;
+
+    &:hover{
+        background: darken(#F5F5F5, 5%);
+    }
+}
+.contact-figure{
+    border: .05rem solid $color-border;
+    background: $color-background;
+    color: $color-text;
+}
+.contact-text{
+    margin-left: .2rem;
+}
+
+.main{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.action-bar{
+    background: $color-background;
+    height: 36px;
+    // padding: .2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-left: .05rem solid $color-border;
+}
+
+.contact-profile{
+    // background-color: lightyellow;
+    flex: 1;
+}
+.contact-header{
+    // background: yellowgreen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // padding: .2rem;
+    margin-top: 20px
+}
+.contact-body{
+    // background: yellowgreen;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 400px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.contact-labels, .contact-data{
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-labels{
+    // background: yellowgreen;
+    // text-align: right;
+    font-weight: bold;
+}
+.contact-data{
+    // background: lightyellow;
+    width: 65%;
+}
+
+.data-label, .data{
+    margin-bottom: 15px;
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+.data-label{}
+.data{}
+
+.contact-name{}
+.contact-job-title{}
+.editable-contact, .empty-state{
+    border-left: .05rem solid $color-border;
+    border-top: .05rem solid $color-border;
+    flex: 1;
+    display: flex;
+    // padding: .2rem;
+}
+.editable-contact-form{
+    padding: 20px;
+    // background: peachpuff;
+    width: 100%;
+}
+.empty-state{
+    justify-content: center;
+    align-items: center;
+}
+.contact-count{
+    color: $color-border;
+    // background: #FAFAFA;
+    // text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.btn-new, .btn-edit, .btn-delete{
+    border-radius: 0;
+    border: 0;
+    width: 33.33%;
+    color: $color-text;
+    &:hover, &:active, &:focus{
+        color: $color-text;
+        box-shadow: none;
+    }
+}
+.btn-new{
+    background: $color-background;
+    &:hover, &:active, &:focus{
+        background: #A9E6FF;
+    }
+}
+.btn-edit{
+    background: $color-background;
+    &:hover, &:active, &:focus{
+        background: #F5FFC8;
+    }
+}
+.btn-delete{
+    background: $color-background;
+    &:hover, &:active, &:focus{
+        background: #FFC1BF;
+    }
+}
+
+.btn-add{
+    border-radius: 0;
+    border: 0;
+    color: $color-text;
+    background: $color-background;
+    &:hover, &:active, &:focus{
+        background: #A9E6FF;
+        color: $color-text;
+        box-shadow: none;
+    }
+}
+
+a{
+    color: inherit;
+    &:hover{
+        color: inherit;
+        text-decoration: none;
+    }
+    &:focus{
+        color: inherit;
+        text-decoration: none;
+        box-shadow: none;
+    }
+    &:active{
+        color: inherit;
+        text-decoration: none
+    }
+}
+
+.form-label{
+    padding: 0;
+}
+
+.form-group{
+    margin-bottom: 0 !important;
+}
+
+.form-input{
+    &:focus{
+        border-color: $color-text;
+        box-shadow: none;
+    }
+}
+
+.a, .a-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    width: 85%;
+    margin: auto;
+}
+
+.b{
+    &>div {
+        margin-bottom: 10px !important;
+    }
+}
+
+.a-header{
+    width: 75%;
+    margin-bottom: 30px;
+}
+
+.a-section{
+    margin-bottom: 10px;
+}
+
+.avatar-xxl{
+    font-size: 2.8rem;
+    height: 6.2rem;
+    width: 6.2rem;
+}
+
+.per100{ &>div{width: 100%;} }
