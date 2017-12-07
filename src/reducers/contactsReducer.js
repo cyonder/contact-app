@@ -19,7 +19,7 @@ const initialState = {
             email: "biryon@email.com",
             address: "27 West Avenue",
             job_title: "CEO",
-            company: null
+            company: ""
         },
         {
             id: "3",
@@ -39,7 +39,7 @@ const initialState = {
             email: "caggun@email.com",
             address: "13 This Avenue",
             job_title: "Gamer",
-            company: null
+            company: ""
         },
         {
             id: "5",
