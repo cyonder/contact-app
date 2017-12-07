@@ -40,6 +40,7 @@ class EditableContactForm extends Component{
     onSubmit(values){
         if(this.props.isEditing){
             this.props.editContact(values);
+            this.props.toggleForm(false);
         }else{
             this.props.addContact(values);
         }

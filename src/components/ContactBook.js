@@ -50,7 +50,7 @@ class ContactBook extends Component{
                             />
                         <Route
                             path="/contacts/:id"
-                            render={ () => <EditableContact { ...this.props } isEditing={ this.state.isEditing } /> }
+                            render={ () => <EditableContact { ...this.props } isEditing={ this.state.isEditing } toggleForm={ this.toggleForm } /> }
                             />
                     </Switch>
                 </main>
