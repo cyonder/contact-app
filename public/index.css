@@ -12,7 +12,8 @@
   height: 500px;
   width: 700px;
   border: 0.05rem solid #D5D4D4;
-  display: flex; }
+  display: flex;
+  box-shadow: 0px 3px 15px 5px rgba(0, 0, 0, 0.1); }
 
 .contact-list {
   background: #F5F5F5;
@@ -111,7 +112,7 @@
 .btn-new, .btn-edit, .btn-delete {
   border-radius: 0;
   border: 0;
-  width: 33.33%;
+  width: 33.333%;
   color: #535C6E; }
   .btn-new:hover, .btn-new:active, .btn-new:focus, .btn-edit:hover, .btn-edit:active, .btn-edit:focus, .btn-delete:hover, .btn-delete:active, .btn-delete:focus {
     color: #535C6E;
