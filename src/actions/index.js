@@ -20,7 +20,6 @@ export function deleteContact(id){
 }
 
 export function addContact(contact){
-    //TODO: Add ID to the new contact
     return{
         type: 'ADD_CONTACT',
         payload: contact

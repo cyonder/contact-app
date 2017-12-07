@@ -61,7 +61,9 @@ class ContactBook extends Component{
 
 const mapStateToProps = (state) => {
     return{
-        contactList: state.contacts.contactList,
+        contactList: state.contacts.contactList.sort((a,b) => {
+            return a.first_name.localeCompare(b.first_name);
+        }),
         activeContact: state.contacts.activeContact
     };
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import _ from 'lodash';
 
 class EditableContactForm extends Component{
     constructor(){
@@ -42,6 +43,7 @@ class EditableContactForm extends Component{
             this.props.editContact(values);
             this.props.toggleForm(false);
         }else{
+            values.id = _.uniqueId('1');
             this.props.addContact(values);
         }
         this.props.history.push('/');
