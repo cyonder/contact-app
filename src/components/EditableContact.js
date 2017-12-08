@@ -16,8 +16,11 @@ class EditableContact extends Component{
             return(
                 <Route
                     path={`/contacts/:id`}
-                    render={ () => <EditableContactForm { ...this.props } initialValues={this.props.activeContact} /> }
-                    />
+                    render={
+                        () => <EditableContactForm
+                                { ...this.props }
+                                initialValues={this.props.activeContact} /> 
+                            }/>
             )
         }else{
             return(

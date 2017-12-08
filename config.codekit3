@@ -188,6 +188,16 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/src\/contactValidation.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/src\/contactValidation-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/src\/index.js": {
 		"ft": 64,
 		"ma": 0,

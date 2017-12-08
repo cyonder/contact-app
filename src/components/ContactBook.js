@@ -19,7 +19,9 @@ import {
 class ContactBook extends Component{
     constructor(){
         super();
-        this.state={ isEditing: false }
+        this.state={
+            isEditing: false
+        }
         this.toggleForm = this.toggleForm.bind(this);
     }
 
@@ -46,12 +48,18 @@ class ContactBook extends Component{
                         <Route
                             exact
                             path="/"
-                            render={ () => <ContactHome count={ this.props.contactList.length } /> }
-                            />
+                            render={
+                                () => <ContactHome
+                                        count={ this.props.contactList.length } />
+                            }/>
                         <Route
                             path="/contacts/:id"
-                            render={ () => <EditableContact { ...this.props } isEditing={ this.state.isEditing } toggleForm={ this.toggleForm } /> }
-                            />
+                            render={
+                                () => <EditableContact
+                                        { ...this.props }
+                                        isEditing={ this.state.isEditing }
+                                        toggleForm={ this.toggleForm }/>
+                            }/>
                     </Switch>
                 </main>
             </div>

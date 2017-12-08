@@ -2,6 +2,17 @@ $color-background: #F5F5F5;
 $color-border: #D5D4D4; //D5D4D4
 $color-text: #535C6E;
 
+.notification{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.error{
+    margin-left: 5px;
+    color: red;
+}
+
 .app{
     background: #EEEEEE;
     min-height: 100vh;

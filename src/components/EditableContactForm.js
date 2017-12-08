@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import _ from 'lodash';
 
+import ContactValidation from '../contactValidation';
+
 class EditableContactForm extends Component{
     constructor(){
         super();
@@ -28,12 +30,16 @@ class EditableContactForm extends Component{
     renderTextField(field){
         return(
             <div className="form-group">
-                <label className="form-label">{ field.label }</label>
+                <label className="form-label">
+                    { field.label }
+                    <span className="error">
+                        { field.meta.touched ? field.meta.error : '' }
+                    </span>
+                </label>
                 <input
                     type="text"
                     className="form-input"
-                    { ...field.input }
-                />
+                    { ...field.input } />
             </div>
         );
     }
@@ -139,7 +145,8 @@ class EditableContactForm extends Component{
 }
 
 export default reduxForm({
-    form: 'contactContactForm'
+    form: 'contactContactForm',
+    validate: (values) => ContactValidation(values)
 })(
     connect(null)(EditableContactForm)
 );
