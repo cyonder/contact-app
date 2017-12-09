@@ -10,7 +10,7 @@ class EditableContact extends Component{
     }
 
     render(){
-        console.log("EditableContact-props: ", this.props);
+        // console.log("EditableContact-props: ", this.props);
 
         if(this.props.isEditing){
             return(
@@ -19,7 +19,7 @@ class EditableContact extends Component{
                     render={
                         () => <EditableContactForm
                                 { ...this.props }
-                                initialValues={this.props.activeContact} /> 
+                                initialValues={this.props.activeContact} />
                             }/>
             )
         }else{

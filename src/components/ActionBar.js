@@ -57,7 +57,7 @@ class ActionBar extends Component{
     }
 
     render(){
-        console.log("ActionBar-props: ", this.props);
+        // console.log("ActionBar-props: ", this.props);
 
         if(this.props.location.pathname === "/contacts/new"){
             return this.onAddContact()

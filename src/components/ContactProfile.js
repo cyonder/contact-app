@@ -22,15 +22,29 @@ class ContactProfile extends Component{
         );
     }
 
+    renderFigure(){
+        return(
+            <figure
+                className="avatar contact-profile-figure contact-figure"
+                data-initial={
+                    `${this.props.activeContact.first_name.charAt(0)}${this.props.activeContact.last_name.charAt(0)}`
+                }/>
+        );
+    }
+
+    renderImage(){
+        return(
+            <img className="contact-profile-img" alt="pic" src={ this.props.activeContact.image } />
+        );
+    }
+
     renderContact(){
         const { activeContact } = this.props;
 
         return(
             <div className="contact-profile">
                 <header className="contact-header">
-                    <figure
-                        className="avatar avatar-xl contact-figure"
-                        data-initial={`${activeContact.first_name.charAt(0)}${activeContact.last_name.charAt(0)}`}/>
+                    { activeContact.image ? this.renderImage() : this.renderFigure() }
                     <span className="contact-name h4">{`${activeContact.first_name} ${activeContact.last_name}`}</span>
                     <span className="contact-job-title h6">{`${activeContact.job_title}`}</span>
                 </header>
@@ -40,10 +54,9 @@ class ContactProfile extends Component{
     }
 
     render(){
-        console.log("ContactProfile-props: ", this.props);
+        // console.log("ContactProfile-props: ", this.props);
 
-        const { activeContact } = this.props;
-        if(!activeContact){return "loading"}
+        if(!this.props.activeContact){return "loading"}
 
         return(
             <div className="editable-contact">

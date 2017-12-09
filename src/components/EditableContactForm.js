@@ -6,15 +6,18 @@ import _ from 'lodash';
 import ContactValidation from '../contactValidation';
 
 class EditableContactForm extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
             fn: '-', // Initial letters of
-            ln: '-' // first and laste name
+            ln: '-', // first and laste name
+            file: '',
+            dataURI: '' // Image
         }
         this.onSubmit = this.onSubmit.bind(this);
         this.onFirstNameBlur = this.onFirstNameBlur.bind(this);
         this.onLastNameBlur = this.onLastNameBlur.bind(this);
+        this.handlePicture = this.handlePicture.bind(this);
     }
 
     componentDidMount(){
@@ -22,7 +25,8 @@ class EditableContactForm extends Component{
         if(this.props.isEditing){
             this.setState({
                 fn: this.refs.fn.value.charAt(0),
-                ln: this.refs.ln.value.charAt(0)
+                ln: this.refs.ln.value.charAt(0),
+                dataURI: this.props.activeContact.image
             })
         }
     }
@@ -45,11 +49,13 @@ class EditableContactForm extends Component{
     }
 
     onSubmit(values){
+        values.image = this.state.dataURI;
+
         if(this.props.isEditing){
             this.props.editContact(values);
             this.props.toggleForm(false);
         }else{
-            values.id = _.uniqueId('1');
+            values.id = _.uniqueId('2');
             this.props.addContact(values);
         }
         this.props.history.push('/');
@@ -71,14 +77,47 @@ class EditableContactForm extends Component{
         }
     }
 
+    handlePicture(event){
+        let reader = new FileReader();
+        let file = event.target.files[0];
+
+        reader.onloadend = () => {
+            this.setState({
+                dataURI: reader.result
+            })
+        }
+        reader.readAsDataURL(file);
+    }
+
+    renderFigure(){
+        return(
+            <figure
+                className="avatar contact-figure contact-profile-figure hoverable"
+                data-initial={`${this.state.fn}${this.state.ln}`} >
+            </figure>
+        )
+    }
+
+    renderImage(){
+        return(
+            <img className="contact-profile-img hoverable" alt="pic" src={ this.state.dataURI } />
+        )
+    }
+
     renderForm(){
-        const { handleSubmit } = this.props;
+        const { handleSubmit, location: { pathname } } = this.props;
+
         return(
             <form onSubmit={ handleSubmit(this.onSubmit) }>
                 <div className="a a-header">
-                    <figure
-                        className="avatar avatar-xxl contact-figure"
-                        data-initial={`${this.state.fn}${this.state.ln}`} />
+                    <div className="file-upload">
+                        <div className="overlay"><span>Upload Picture</span></div>
+                        { this.state.dataURI && pathname !== "/contacts/new" ? this.renderImage() : this.renderFigure() }
+                        <input
+                            type="file"
+                            onChange={ this.handlePicture }
+                            className="upload"/>
+                    </div>
                     <div className="b">
                         <Field
                             onBlur={ this.onFirstNameBlur }
@@ -133,7 +172,7 @@ class EditableContactForm extends Component{
     }
 
     render(){
-        console.log("EditableContactForm-props: ", this.props);
+        // console.log("EditableContactForm-props: ", this.props);
         return(
             <div className="editable-contact">
                 <div className="editable-contact-form">

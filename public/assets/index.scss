@@ -2,17 +2,6 @@ $color-background: #F5F5F5;
 $color-border: #D5D4D4; //D5D4D4
 $color-text: #535C6E;
 
-.notification{
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
-.error{
-    margin-left: 5px;
-    color: red;
-}
-
 .app{
     background: #EEEEEE;
     min-height: 100vh;
@@ -31,7 +20,6 @@ $color-text: #535C6E;
     // border-radius: .2rem;
     display: flex;
     box-shadow: 0px 3px 15px 5px rgba(0,0,0,0.10);
-    // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .contact-list{
@@ -50,9 +38,11 @@ $color-text: #535C6E;
     }
 }
 .contacts{
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     border-top: .05rem solid $color-border;
+    overflow: scroll;
+    height: 462px;
 }
 .contact{
     padding: .2rem;
@@ -63,13 +53,12 @@ $color-text: #535C6E;
         background: darken(#F5F5F5, 5%);
     }
 }
-.contact-figure{
-    border: .05rem solid $color-border;
-    background: $color-background;
-    color: $color-text;
-}
 .contact-text{
     margin-left: .2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 160px;
 }
 
 .main{
@@ -254,10 +243,76 @@ a{
     margin-bottom: 10px;
 }
 
-.avatar-xxl{
-    font-size: 2.8rem;
-    height: 6.2rem;
-    width: 6.2rem;
+.per100{ &>div{width: 100%;} }
+
+.error{
+    margin-left: 5px;
+    color: red;
 }
 
-.per100{ &>div{width: 100%;} }
+.file-upload{
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.overlay{
+    display: none;
+    background: $color-background !important;
+    & > span{
+        color: $color-text;
+        position: absolute;
+        left: 5px;
+        top: 2.4rem;
+    }
+}
+
+.file-upload:hover .overlay {
+    display: block;
+    position: relative;
+}
+
+.file-upload:hover .hoverable {
+    display: none;
+}
+
+.upload{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    margin: 0;
+    padding-top: 50px;
+    z-index: 2; // Figure has z-index: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: pink;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.contact-figure{
+    border: .05rem solid $color-border;
+    background: $color-background;
+    color: $color-text;
+}
+
+.contact-profile-img,
+.contact-profile-figure,
+.overlay{
+    height: 6.2rem;
+    width: 6.2rem;
+    border-radius: 50%;
+    border: .05rem solid $color-border;
+}
+
+.contact-profile-figure{
+    font-size: 2.8rem;
+}
+
+.contact-list-img{
+    height: 1.6rem;
+    width: 1.6rem;
+    border-radius: 50%;
+}
